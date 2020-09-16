@@ -128,6 +128,13 @@ HI0118
 
 quast.py spades/contigs.fasta spades/scaffolds.fasta ../GCA_001635265*
 
+mkdir analasys
+cd analasys/
+cp ../spades2/contigs.fasta spades.merged.fna
+cp ../spades/contigs.fasta spades.nonmerged.fna
+cp ../GCA_001635265.1_ASM163526v1_genomic.fna genbank.fna
+checkm taxonomy_wf -t 2 -f checkm.txt domain Bacteria . checkm
+
 
 Для закрепления повторим с несколькими другими образцами:
 
