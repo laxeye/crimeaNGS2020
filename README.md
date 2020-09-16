@@ -97,9 +97,9 @@ conda activate crimeangs
 
 `mash sketch -r -m 3 pe*fq`
 
-`fastq pe*fq`
+`fastqc pe*fq`
 
-`fastq nm.pe*gz merged.fq.gz`
+`fastqc nm.pe*gz merged.fq.gz`
 
 Просмотрим отчёты в браузере.
 
@@ -110,7 +110,7 @@ conda activate crimeangs
 
 `cd ..`
 
-`spades.py -1 preprocess/nm.pe_1.fq.gz -2 preprocess/nm.pe_1.fq.gz -t 2 -m 4 -o spades`
+`spades.py -1 preprocess/nm.pe_1.fq.gz -2 preprocess/nm.pe_2.fq.gz -t 2 -m 4 -o spades`
 
 
 Пока идёт сборка найдём, что есть в базах по этому геному:
@@ -126,7 +126,7 @@ HI0118
 
 ## Оценка качества генома
 
-quast.py spades/contigs.fasta spades/scaffolds.fasta ../GCA_*
+quast.py spades/contigs.fasta spades/scaffolds.fasta ../GCA_001635265*
 
 
 Для закрепления повторим с несколькими другими образцами:
