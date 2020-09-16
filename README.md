@@ -106,11 +106,11 @@ conda activate crimeangs
 Удалим промежуточные файлы `rm pe*fq`
 
 
-## СБорка генома при помощи SPAdes
+## Сборка генома при помощи SPAdes
 
 `cd ..`
 
-`spades.py -1 preprocess/nm.pe_1.fq.gz -2 preprocess/nm.pe_2.fq.gz -t 2 -m 4 -o spades`
+`spades.py -1 preprocess/nm.pe_1.fq.gz -2 preprocess/nm.pe_2.fq.gz -t 2 -m 4 -o spades --merged preprocess/merged.fq.gz`
 
 
 Пока идёт сборка найдём, что есть в базах по этому геному:
