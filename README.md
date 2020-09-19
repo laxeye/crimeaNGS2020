@@ -291,6 +291,26 @@ https://blast.ncbi.nlm.nih.gov/
 
 Nucleotide BLAST -> Database: rRNA/ITS databases - 16S ribosomal RNA
 
+## Предсказание белок-кодирующих генов
+
+`conda install prodigal`
+
+`prodigal -i bcer.genome.fna -f gff -o bcer.cds.gff -a bcer.protein.faa -d bcer.cds.fna`
+
+`grep -c ">" bcer.protein.faa`
+
+## Аннотация при помощи DFAST
+
+`dfast_file_downloader.py --protein dfast`
+
+`dfast_file_downloader.py --cdd Cdd`
+
+`dfast_file_downloader.py --hmm pfam`
+
+`dfast_file_downloader.py --hmm TIGR`
+
+`dfast -g bcer.genome.fna --cpu 1 -o bcer-dfast --organism "Bacillus sp."`
+
 ## Онлайн аннотация прокариот
 
 **RAST** (Rapid Annotation using Subsystem Technology) i
@@ -302,8 +322,6 @@ https://rast.nmpdr.org/
 https://www.genome.jp/tools/kaas/
 
 ### Поиск вторичных метаболитов
-
-**Предсказание вторичных метаболитов**
 
 https://antismash.secondarymetabolites.org/
 
