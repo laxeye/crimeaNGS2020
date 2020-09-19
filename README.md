@@ -2,6 +2,7 @@
 Short course on genome assembly and annotation
 
 
+
 # Установка программ
 
 ## Установка conda
@@ -258,9 +259,57 @@ https://www.ncbi.nlm.nih.gov/sra/SRX8842585
 
 `checkm taxonomy_wf -f checkm.txt genus Bacillus contigs checkm`
 
-# Аннотация геномов
+# Аннотация геномов прокариот
 
-XXX - путь к лучшему геному по нашей оценке
+## Поиск генов 16S рРНК
 
-`dfast --cpu 1 --center_name TPA --organism "Bacillus cereus" -g XXX -o dfast-annotation`
+`cd ~/crimea/hybrid`
+
+`mkdir annotation`
+
+`cp contigs/flye.2.fna annotation/bcer.genome.fna`
+
+`cd annotation`
+
+`conda install easel barrnap`
+
+`barrnap bcer.genome.fna > bcer.rrna.gff`
+
+`less bcer.rrna.gff`
+
+`barrnap bcer.genome.fna | grep 16S > bcer.16S.gff`
+
+`esl-sfetch --index bcer.genome.fna`
+
+`awk '{n++; print "16S_"n, $4, $5, $1}' bcer.16S.gff > bcer.16S.list`
+
+`esl-sfetch -Cf bcer.genome.fna bcer.16S.list > bcer.16S.fna`
+
+## Установление таксономии
+
+https://blast.ncbi.nlm.nih.gov/
+
+Nucleotide BLAST -> Database: rRNA/ITS databases - 16S ribosomal RNA
+
+## Онлайн аннотация прокариот
+
+**RAST** (Rapid Annotation using Subsystem Technology) i
+
+https://rast.nmpdr.org/
+
+**KAAS** (KEGG Automatic Annotation Server)
+
+https://www.genome.jp/tools/kaas/
+
+### Поиск вторичных метаболитов
+
+**Предсказание вторичных метаболитов**
+
+https://antismash.secondarymetabolites.org/
+
+### Поиск генов резистентности
+
+**CARD** (The Comprehensive Antibiotic Resistance Database)
+
+https://card.mcmaster.ca/analyze/rgi
 
