@@ -342,3 +342,4 @@ https://card.mcmaster.ca/analyze/rgi
 
 `cat myproject.proteinortho.tsv | grep -v "^#" | cut -f 4- | sed 's/,/\t/g' | sed 's/NC_00967[0-9].1/Bcyt/g' | sed 's/NZ_ABJC01000[0-9]\+.1/BantA0488/g' | sed 's/NZ_CP00[0-9]\+.1/BantVollum/g' | sed 's/NZ_CP03[0-9]\+.1/Bcer/g' | sed 's/contig_[1-4]/BNamibia/g' | sed 's/_/\|/g;s/\*\t//g; s/\t\*//g' > clusters.tsv`
 
+https://orthovenn2.bioinfotoolkits.net/cluster-venn
