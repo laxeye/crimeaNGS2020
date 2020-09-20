@@ -1,6 +1,7 @@
 # crimeaNGS2020
 Short course on genome assembly and annotation
 
+https://docs.google.com/presentation/d/1DCtWySNo2XPIe_3eq772xl_j6F0srThFbTtExzNIDEU/edit?usp=sharing
 
 
 # Установка программ
