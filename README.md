@@ -331,3 +331,14 @@ https://antismash.secondarymetabolites.org/
 
 https://card.mcmaster.ca/analyze/rgi
 
+
+# Пангеномный анализ
+
+`for x in *fna; do prodigal -o /dev/null -i $x -a ${x/fna/faa}; done`
+
+`proteinortho -singles --cpus=4 *faa`
+
+`proteinortho -singles --cpus=4 *faa -p=blastp`
+
+`cat myproject.proteinortho.tsv | grep -v "^#" | cut -f 4- | sed 's/,/\t/g' | sed 's/NC_00967[0-9].1/Bcyt/g' | sed 's/NZ_ABJC01000[0-9]\+.1/BantA0488/g' | sed 's/NZ_CP00[0-9]\+.1/BantVollum/g' | sed 's/NZ_CP03[0-9]\+.1/Bcer/g' | sed 's/contig_[1-4]/BNamibia/g' | sed 's/_/\|/g;s/\*\t//g; s/\t\*//g' > clusters.tsv`
+
